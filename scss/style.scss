@@ -1,13 +1,37 @@
 html, body{
     height: 100%;
-    width: 100%;
-
-
-
-
+    width: 99%;
 }
 
 .pozycjonowanie{
+    display: flex;
+    height: 90%;
+    width: 100%;
+}
+
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+.center{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 60%;
 }
 
 #background{
@@ -15,7 +39,6 @@ html, body{
     height: 100%;
     width: 100%;
     position: fixed;
-
     top:0px;
     left:0px;
 
@@ -31,14 +54,18 @@ html, body{
     margin: 5px;
     padding: 5px;
     border-radius: 10px;
+    opacity: 0.8;
+    color: white;
+    font-size: xx-large;
+    text-align: center;
 }
 
 .zdjecia1{
     height: 70%;
-    width: 15%;
+    width: 100%;
     border-radius: 10px;
+    display: flex;
 
-    position: fixed;
     
     bottom: 40px;
     left: 25px;
@@ -46,14 +73,17 @@ html, body{
     margin: 0px;
     padding: 0px;
     background-color: rgb(22, 123, 59);
+
+    opacity: 0.5;
 }
 
 .zdjecia2{
     height: 70%;
-    width: 15%;
+    width: 100%;
     border-radius: 10px;
 
-    position: fixed;
+    display: flex;
+
     
     bottom: 40px;
     right: 25px;
@@ -62,32 +92,36 @@ html, body{
     padding: 0px;
     background-color: rgb(22, 123, 59);
 
+    opacity: 0.5;
 }
 
 .opis_miasta{
-    height: 50%;
-    width: 30%;
+    height: 45%;
+    width: 50%;
     border-radius: 10px;
 
-    margin: 0px;
-    padding: 0px;
-    background-color: white;
-    
-    position: fixed;
-    
-    top: 250px;
-    left: 625px;
-}
-
-    .komentarze{
-    height: 50%;
-    width: 30%;
-    border-radius: 10px;
-
-    margin: 0px;
-    padding: 0px;
+    margin: 20px;
+    padding: 10px;
     background-color: white;
     
     display: flex;
-    justify-content: flex-end;
+    text-align: left;
+    flex-direction: column;
+    border: 1px solid black;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+    .komentarze{
+    height: 45%;
+    width: 50%;
+    border-radius: 10px;
+
+    margin: 20px;
+    padding: 10px;
+    background-color: white;
+    
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
 }
