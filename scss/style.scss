@@ -103,7 +103,7 @@ html, body{
 }
 
 .opis_miasta{
-    height: 45%;
+    height: 35%;
     width: 50%;
     border-radius: 10px;
 
@@ -120,7 +120,7 @@ html, body{
 }
 
     .komentarze{
-    height: 45%;
+    height: 65%;
     width: 50%;
     border-radius: 10px;
 
@@ -157,4 +157,108 @@ html, body{
     -moz-transform: scale(1.3);
     -o-transform: scale(1.3);
     -webkit-transform: scale(1.3);
+}
+
+
+
+
+.container{
+    background: #fff;
+    padding: 20px;
+    font-family: monospace;
+}
+
+.head{
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.text{
+    margin: 10px 0;
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
+
+.commentbox{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.content{
+    width: 100%;
+}
+
+.uzytkownik{
+    border: none;
+    outline: none;
+    margin: 5px 0;
+    color: lightgray;
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.commmentinput > input{
+    border: none;
+    padding: 10px;
+    padding-left: 0;
+    outline: none;
+    border-bottom: 2px solid blue;
+    margin-bottom: 10px;
+    width: 95%;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: lightgray;
+}
+
+.buttons button{
+    padding: 5px 10px;
+    background: lightgray;
+    color: #808080;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.buttons button.abled{
+    background: blue;
+    color: white;
+}
+
+.cenzura{
+    margin: 20px 0;
+    font-size: 0.8em;
+    font-family: Arial, sans-serif;
+    color: #808080;
+}
+
+.cenzura a{
+    text-decoration: none;
+    color: blue;
+}
+
+.paterns{
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.paterns h1{
+    font-size: 0.9em;
+}
+
+.paterns p{
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.date{
+    color: #808080;
+    font-size: 0.8em;
 }

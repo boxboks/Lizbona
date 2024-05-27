@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wakacje w Lizbonie</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <img id="background" src="..\assets\lizbona.jpg" alt="" width="1925">
+   
+    <div class="naglowek">
+        <h1>Lizbona</h1>
+    </div>
+    
+    <div class="pozycjonowanie">
+        <div class="left">
+            <div class="zdjecia1">
+                <img src="../assets/asfkas.jpg" alt="" width="60%" height="20%">
+                <img src="../assets/IMG_2993.webp" alt="" width="60%" height="20%">
+                <img src="../assets/lizbona_1109733.jpg" alt="" width="60%" height="20%">
+            </div>
+        </div>
+        <div class="center">
+            <div class="opis_miasta">
+                <h1>Lizbona</h1>
+                <h3>Jest to stolica i największe miasto Portugalii, położone w zachodniej części Półwyspu Iberyjskiego, nad rzeką Tag przy jej ujściu do Oceanu Atlantyckiego.</h3>
+                <h3>Region Lizbony jest najbogatszym regionem w Portugalii, wysoko ponad średnim PKB Unii Europejskiej</h3>
+            </div>
+            
+            <div class="komentarze">
+                <div class="container">
+                    <div class="head"><h1>Dodaj komentarz</h1></div>
+                    <div><span id="comment">0</span> Komentarzy</div>
+                    <div class="text">Dziękujemy za opinię</div>
+                    <div class="komentarze1"></div>
+                    <div class="commentbox">
+                        <div class="content">
+                            <h2> Nazwa użytkownika:</h2>
+                            <input type="text" value="Anonimowy" class="uzytkownik">
+
+                            <div class="commentinput">
+                                <input type="text" placeholder="Dodaj komentarz" class="komentarzuzytkownika">
+                                <div class="buttons">
+                                    <button class="submit" disabled id="opublikuj">Opublikuj</button>
+                                </div>
+                            </div>
+                            <p class="cenzura">W sekcji komentarzy obowiązuje cenzura</p>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+
+            <script>
+                "use strict";                
+                function addPost() {
+                    console.log("Komentarz został dodany!")
+                    if(!komentarzuzytkownika.value) return;
+                    userId.name = nazwaUzytkownika.value;
+                    if(userId.name === "Anonimowy") {
+                        userId.indentity = false;
+                    }else {
+                        userId.indentity = true;
+                    }
+
+                    userId.message = komentarzuzytkownika.value;
+                    userId.date = new Date().toLocaleString();
+                    let opublikuj = 
+                    `<div class="paterns">
+                        <div>
+                        <h1>${userId.name}</h1>
+                        <p>${userId.message}</p>
+                        <span class="date">${userId.date}</span>
+                        </div>   
+                     </div>`
+
+                     komentarze1.innerHTML += opublikuj;
+                     komentarzuzytkownika.value = "";
+                     
+                     let commentsNum = document.querySelectorAll(".paterns").length;
+                     document.getElementById("komentarz1").textContent = commentsNum;
+                }
+                const publishBtn = document.querySelector("#opublikuj");
+                const komentarze1 = document.querySelector(".komentarze1");
+                const nazwaUzytkownika = document.querySelector(".uzytkownik");
+                const komentarzuzytkownika = document.querySelector(".komentarzuzytkownika");
+                const userId = {
+                     name: null,
+                     indentity: null,
+                     image: null,
+                     message: null,
+                     date: null
+                }
+                addEventListener('load', ()=>{
+
+                    komentarzuzytkownika.addEventListener("input", (ev) => {
+                        
+                        if(!ev.target.value) {
+                            publishBtn.setAttribute("disabled", "disabled");
+                            publishBtn.classList.remove("abled")
+                        }else {
+                            publishBtn.removeAttribute("disabled");
+                            publishBtn.classList.add("abled")
+                        }
+                    })
+                    publishBtn.addEventListener("click", addPost)
+                })
+            </script>
+            <script>
+                fetch("http://localhost:3000/comments")
+                .then((resp)=> resp.json())
+                .then((data)=>{
+                    for(let comment of data) {
+                        
+                    }
+                });
+            </script>
+
+        </div>
+        <div class="right">
+            <div class="zdjecia2">
+                <img src="../assets/azenhas-do-mar.jpg" alt="" width="60%" height="20%">
+                <img src="../assets/cascais-1-1170x730.jpg" alt="" width="60%" height="20%">
+                <img src="../assets/sao-pedro-do-estoril-beach-relaxing.jpg" alt="" width="60%" height="20%">
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/Comments.js" type="text/javascript"></script>
+</body>
+</html>
