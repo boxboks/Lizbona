@@ -13,6 +13,7 @@ const port = 3000
 
 connection.connect()
 app.use(express.static(__dirname + "/public"))
+app.use(express.json())
 
 app.get('/', (req, res)=>{
     res.sendFile(__dirname + "/public/html/strona_glowna.html")     
@@ -24,7 +25,13 @@ app.get('/comments', (req, res) => {
     res.json(JSON.parse(JSON.stringify(rows)))
   });
 })
-
+app.post('/addComment', (req, res) => {
+  connection.query("insert into comments(author, text, date) values (?, ?, ?)", 
+  [req.body.author, req.body.text, new Date().toISOString()]
+  , (err, rows, fields) =>{
+    res.status(200)
+  });
+})
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

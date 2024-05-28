@@ -74,12 +74,23 @@
                         <span class="date">${userId.date}</span>
                         </div>   
                      </div>`
+                     
+                    fetch("http://localhost:3000/addComment", {
+                        method: "post",
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Accept': "application/json"
+                        },
+                        body: JSON.stringify({
+                            author: document.querySelector(".uzytkownik").value,
+                            text: document.querySelector(".komentarzuzytkownika").value,
+                        })
+                        })
 
                      komentarze1.innerHTML += opublikuj;
                      komentarzuzytkownika.value = "";
-                     
                      let commentsNum = document.querySelectorAll(".paterns").length;
-                     document.getElementById("komentarz1").textContent = commentsNum;
+                     document.getElementById(".komentarz1").textContent = commentsNum;
                 }
                 const publishBtn = document.querySelector("#opublikuj");
                 const komentarze1 = document.querySelector(".komentarze1");
@@ -111,8 +122,15 @@
                 fetch("http://localhost:3000/comments")
                 .then((resp)=> resp.json())
                 .then((data)=>{
+                    let k1 = document.querySelector(".komentarze1")
                     for(let comment of data) {
-                        
+                        k1.innerHTML += `<div class="paterns">
+                        <div>
+                        <h1>${comment.author}</h1>
+                        <p>${comment.text}</p>
+                        <span class="date">${comment.date.split('T')[0]}</span>
+                        </div>   
+                     </div>`
                     }
                 });
             </script>
