@@ -1,3 +1,5 @@
+PL:
+
 Potrzebne pluginy w VSCode:
 - Live Sass Compiler
 
@@ -5,8 +7,24 @@ Potrzebne pluginy w VSCode:
 
 Aby wszystko działało na stronie należy:
 - zaimportować plik "cenzor.sql" do bazy odanych
-- Press "Watch Sass"
+- kliknąć "Watch Sass"
 - wpisać w terminal:
 - `npm install`
 - `node index.js`;
 - strona powinna być na `localhost:3000`
+
+
+EN:
+
+Required VSCode plugins:
+-Live Sass Compiler
+
+[node.js](https://nodejs.org/en) - (requred)
+
+For everything to work on the website you need to:
+-import "cenzor.sql" to database
+- press "Watch Sass"
+- write in terminal:
+- `npm install`
+- `node index.js`;
+- website will be on: `localhost:3000`
