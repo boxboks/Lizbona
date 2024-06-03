@@ -1,7 +1,7 @@
-Required VSCode plugins:
+Potrzebne pluginy w VSCode:
 - Live Sass Compiler
 
-[node.js](https://nodejs.org/en) required
+[node.js](https://nodejs.org/en) - (wymagane)
 
 Aby wszystko działało na stronie należy:
 - zaimportować plik "cenzor.sql" do bazy odanych
