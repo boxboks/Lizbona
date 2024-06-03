@@ -1,5 +1,5 @@
 const express = require('express')
-
+const censoring = require('./censoring')
 const mysql = require('mysql')
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
     database: 'cenzor'
 })
 
-const app = express()
+const app = express() 
 const port = 3000
 
 connection.connect()
@@ -27,8 +27,8 @@ app.get('/comments', (req, res) => {
 })
 app.post('/addComment', (req, res) => {
   connection.query("insert into comments(author, text, date) values (?, ?, ?)", 
-  [req.body.author, req.body.text, new Date().toISOString()]
-  , (err, rows, fields) =>{
+  [req.body.author, censoring.GetCensoredText(req.body.text), new Date().toISOString()], 
+  (err, rows, fields) => {
     res.status(200)
   });
 })
